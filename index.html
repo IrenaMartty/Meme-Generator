@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ae0032aa41.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="dark">
+    <div class="main-div">
+        <header>
+            <h1 class="app-title">
+                Meme Generator
+            </h1>
+            <div class="nav">
+                <button class="nav-button button-dark-mode">
+                    <i class="fa-solid fa-file-image"></i>
+                    Image
+                </button>
+                <button class="nav-button button-dark-mode">
+                    <i class="fa-solid fa-font"></i>
+                    Text
+                </button>
+                <button class="nav-button button-dark-mode">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    Dark mode
+                </button>
+                <!-- <button class="nav-button light-mode">
+            <i class="fa-solid fa-lightbulb"></i>
+            Light mode
+        </button> -->
+            </div>
+        </header>
+        <main class="meme-container">
+
+            <div class="meme-template" id="meme-template">
+                <p id="top-text" class="meme-text">
+                    Top Text
+                </p>
+                <div src="" alt="" class="image-meme" id="image-meme" aria-label="Meme Image"></div>
+                <p id="bottom-text" class="meme-text">
+                    Bottom Text
+                </p>
+            </div>
+
+            <div>
+                <button class='download' type="button">
+                    <i class="fa-solid fa-download"></i> Download Meme</button>
+            </div>
+        </main>
+    </div>
+    <aside class="side-bar">
+    
+        <!-- IMAGE PANEL -->
+    
+        <section>
+            <h2 class="panel-title">IMAGE</h2>
+            <div class="panel-control">
+                <!-- INSERT URL -->
+                <h3 class="url panel-control-title">URL</h3>
+                <input type="text" class="img-url" id="insert-img-url" aria-label="Insert image url">
+            </div>
+        
+            <!-- BACKGROUND -->
+            <div class="panel-control">
+                <h3 class="background panel-control-title">
+                    Background
+                </h3>
+                <div class="background-color-settings">
+        
+                    <div class="panel-control-color panel-control-column">
+                        <input type="color" class="background-color" id="pick-background-color"
+                            aria-label="Pick the color of the background" value="#FFFFFF" >
+                        <span id="blend-mode-color" aria-hidden="true">#FFFFFF </span>
+        
+        
+                    </div>
+                    <div class="panel-control-column">
+                        <select class="background-blend" id="select-blend-mode">
+                            <option value="unset">None</option>
+                            <option value="lighten">Lighten</option>
+                            <option value="darken">Darken</option>
+                            <option value="diffence">Diffence</option>
+                            <option value="luminosity">Luminosity</option>
+                            <option value="multiply">Multiply</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- FILTERS -->
+            <div class="panel-control">
+                <h3 class="filters panel-control-title">
+                    Filters
+                </h3>
+                <div class="slider">
+                    <label for="brightness">BRIGHTNESS</label>
+                    <input type="range" id="brightness-slider" min="0" max="1" value="1" step="0.1">
+                </div>
+                <div class="slider">
+                    <label for="opacity">OPACITY</label>
+                    <input type="range" id="opacity-slider" min="0" max="1" value="1" step="0.1">
+                </div>
+                <div class="slider">
+                    <label for="contrast">CONTRAST</label>
+                    <input type="range" id="contrast-slider" min="100" max="1000" value="100"">
+                </div>
+                <div class="slider">
+                    <label for="blur">BLUR</label>
+                    <input type="range" id="blur-slider" min="0" max="10" value="0" step="0.1">
+                </div>
+                <div class="slider">
+                    <label for="gray-scale">GRAYSCALE</label>
+                    <input type="range" id="grayscale-slider" min="0" max="100" value="0">
+                </div>
+                <div class="slider">
+                    <label for="sepia-scale">SEPIA</label>
+                    <input type="range" id="sepia-slider" min="0" max="100" value="0">
+                </div>
+                <div class="slider">
+                    <label for="hue-scale">HUE</label>
+                    <input type="range" id="hue-slider" min="0" max="360" value="0">
+                </div>
+                <div class="slider">
+                    <label for="saturate-scale">SATURATE</label>
+                    <input type="range" id="saturate-slider" min="100" max="1000" value="100" step="10">
+                </div>
+                <div class="slider">
+                    <label for="invert-scale">INVERT</label>
+                    <input type="range" id="invert-slider" min="0" max="1" value="0" step="0.1">
+                </div>
+            </div>
+            <button class="button button-default" id="button-default">
+                Remove filters
+            </button>
+        </section>
+
+        <!-- TEXT PANEL -->
+        <section>
+            <h2 class="panel-title">TEXT</h2>
+        
+            <!-- TOP TEXT -->
+            <div class="panel-control">
+                <h3 class="panel-control-title">
+                    SUPERIOR
+                </h3>
+                <div class="top-text-container">
+                    <textarea class="top-text" name="top-text" id="insert-top-text" cols="30" rows="1">TOP TEXT</textarea>
+                    <div>
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                        <span>Without top text</span>
+                    </div>
+                </div>
+            </div>
+            <!-- BOTTOM TEXT -->
+            <div class="panel-control">
+                <h3 class="panel-control-title">
+                    INFERIOR
+                </h3>
+                <div class="top-text-container">
+                    <textarea class="bottom-text" name="bottom-text" id="insert-bottom-text" cols="30"
+                        rows="1">BOTTOM TEXT</textarea>
+                    <div>
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                        <span>Without bottom text</span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- FONT -->
+            <div class="panel-control">
+                <h3 class="panel-control-title">FONT</h3>
+                <div>
+                    <!-- FONT FAMILY -->
+                    <div>
+                        <select name="text-font" class="select-font" id="select-font">
+                            <option value="Arial">Arial</option>
+                            <option value="Arial Black">Arial black</option>
+                            <option value="American Typewriter">American Typewriter</option>
+                            <option value="Andale Mono">Andale Mono</option>
+                            <option value="Comic Sans MS">Comic Sans MS</option>
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="Impact">Impact</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                        </select>
+                    </div>
+                    <!-- FONT SIZE -->
+                    <div class="font-settings">
+                        <input type="number" name="Font size" id="font-size" aria-label="Size of font" class="font-size"
+                            min="12" max="46" value="46">
+                        <div class="align-buttons">
+                            <button class="button-align" id="button-align-left">
+                                <i class="fa-solid fa-align-left"></i>
+        
+                            </button>
+                            <button class="button-align" id="button-align-center">
+                                <i class="fa-solid fa-align-center"></i>
+                            </button>
+                            <button class="button-align" id="button-align-right">
+                                <i class="fa-solid fa-align-right"></i>
+                            </button>
+        
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="panel-control">
+                <div class="panel-control-columns">
+                    <div class="panel-control panel-control-color">
+                        <h3 class="panel-control-title">Color</h3>
+
+                    </div>
+                    <div class="panel-control panel-control-background">
+                        <h3 class="panel-control-title">FONDO</h3>
+                    </div>
+
+                </div>
+
+            </div>
+        
+        </section>
+    
+    </aside>
+    <script src="script.js"></script>
+</body>
+
+</html>
