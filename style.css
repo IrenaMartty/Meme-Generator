@@ -1,3 +1,4 @@
+
 body {
     display: flex;
     flex-direction: column;
@@ -42,6 +43,7 @@ header {
     background-color: transparent;
     border: none;
     font-size: 15px;
+    color: white;
 }
 
 .button-dark-mode {
@@ -53,33 +55,39 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    
     
 }
-
 .meme-template {
     width: 100%;
-    max-width: 610px;
     height: 610px;
+    width: 610px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: black;
     align-items: center;
 }
 
 .meme-text {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 35px;
+    font-size: 50px;
     width: 100%;
     background: white;
     color: black;
     text-align: center;
     margin: 0;
+    
 
 }
 
-.image-meme {
+.meme-image {
     background-color: black;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .download {
@@ -99,21 +107,38 @@ header {
     flex-direction: column;
     justify-content: flex-start;
     padding: 30px 15px;
-    /* overflow: auto; */
     background-color: rgb(1,30,35);
     margin-left: auto;
-    width: 220px;
+    width: 230px;
+    position: fixed;
     height: 100%;
-    
+    z-index: 10;
 }
 /* PANELS */
+
 
 section {
     display: block;
     font-family: 'Open Sans', sans-serif;
     color: white;
-    overflow: auto;
+    overflow:auto;
+    padding-bottom: 50px;
+    position: fixed;
 }
+
+button {
+    cursor: pointer;
+}
+
+input, select, button, textarea {
+    padding-bottom: 5px;
+}
+
+.panel-control {
+    padding-top: 10px;
+}
+
+
 
 /* <!-- IMAGE PANEL --> */
 
@@ -126,6 +151,7 @@ section {
 
  .panel-control-title {
     font-size: 15px;
+    
  }
  /* <!-- INSERT URL --> */
 
@@ -147,13 +173,24 @@ section {
 
  }
 
- #pick-background-color {
+ .background-color {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
     padding: 0;
     margin: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
  }
+
+ .background-color::-webkit-color-swatch
+ ,.background-color::-webkit-color-swatch-wrapper {
+    border-radius: 100%;
+    border: none;
+    padding: 0;
+ }
+
+ 
    
   /* <!-- FILTERS --> */
 
@@ -163,6 +200,11 @@ section {
     flex-direction: column;
     justify-content: space-between;
     padding-top: 5px;
+    
+ }
+
+ .effect-slider {
+    cursor: pointer;
     
  }
 
@@ -176,6 +218,10 @@ section {
 
 /* <!-- TEXT PANEL --> */
 
+.hidden {
+    display: none;
+}
+
 /* <!-- TOP TEXT --> */ /* <!-- BOTTOM TEXT --> */
 
 
@@ -184,8 +230,8 @@ section {
     flex-direction: column;
 }
 
-.top-text, .bottom-text {
-    margin-bottom: 5px;
+.checkbox {
+    margin-top: 15px;
 }
 
 textarea {
@@ -214,8 +260,35 @@ textarea {
     width: 50%;
 }
 
+/* <!-- FONT COLOR -->   <!-- TEXT BACKGROUND COLOR --> */
 
 
+.panel-control-columns {
+    display: flex;
+    flex-direction: row;
+    
+}
 
+.panel-control-color {
+    margin-right: 10px;
+}
 
+/* <!-- CONTOUR --> */
+
+.contour-buttons {
+    width: 100%;
+
+}
+
+.button-contour {
+    width: 32%;
+    /* padding: 5px; */
+}
+
+/* <!-- SPACING --> */
+
+.spacing {
+    width: 100%;
+   
+}
 
