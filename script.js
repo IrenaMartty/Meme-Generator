@@ -8,13 +8,15 @@ const downloadMeme = () => {
         saveAs(blob, "my-meme.png")
     })
 }
+
+const addColor = (selector, color) => $(selector).style.color = color
+
 const hideElement = (selector) => $(selector).classList.add("visibility--hidden")
 const showElement = (selector) => $(selector).classList.remove("visibility--hidden")
 
 // EVENTOS //
 
-// TEXT-IMAGE SWITCH BUTTONS
-
+// <!-- TEXT-IMAGE SWITCH BUTTONS -->
 $("#text-button").addEventListener ('click' , () => {
     $("#aside-text").classList.remove("hidden")
     $("#aside-img").classList.add("hidden")
@@ -25,21 +27,7 @@ $("#img-button").addEventListener ('click' , () => {
     $("#aside-text").classList.add("hidden")
 })
 
-// MEME IMAGE UPLOAD
-
-const urlInput = document.getElementById('insert-img-url');
-const memeImg = document.getElementById('meme-img');
-
-urlInput.addEventListener('input', ()=> backgroundChange())
-
-const backgroundChange = () => {
-    memeImg.style.backgroundImage = `url('${urlInput.value}')`
-
-
-}
-
-// DARK MODE-LIGHT MODE SWITCH BUTTON
-
+// <!-- DARK MODE-LIGHT MODE SWITCH BUTTON -->
 $("#mode-button").addEventListener("click", () => {
     const currentTheme = $("body").getAttribute("data-theme")
         if(currentTheme) {
@@ -52,7 +40,30 @@ $("#mode-button").addEventListener("click", () => {
       
     })
     
-// // FILTERS
+// <!-- IMAGE PANEL -->
+
+// <!-- INSERT URL -->
+const urlInput = document.getElementById('insert-img-url');
+const memeImg = document.getElementById('meme-img');
+
+urlInput.addEventListener('input', ()=> backgroundChange())
+
+const backgroundChange = () => {
+    memeImg.style.backgroundImage = `url('${urlInput.value}')`
+
+
+}
+
+// <!-- BACKGROUND -->
+$("#pick-background-color").addEventListener("input", (e)=> {
+    $(".meme-image").style.backgroundColor = e.target.value
+})
+
+$("#select-blend-mode").addEventListener("input", (e)=> {
+    $(".meme-image").style.backgroundBlendMode = e.target.value
+})
+
+// <!-- FILTERS -->
 
 // const brightInput = document.getElementById("brightness-slider");
 // const contrastInput = document.getElementById('contrast-slider');
@@ -64,12 +75,23 @@ $("#mode-button").addEventListener("click", () => {
 // const saturationInput = document.getElementById('saturate-slider');
 // const invertInput = document.getElementById('invert-slider');
 
-// // console.log(brightInput.value);
-// // console.log(contrastInput.value);
+// console.log(brightInput.value);
+// console.log(contrastInput.value);
 
-// const filters = () => {
-//     memeImg.style.filter = `brightness(${brightInput.value}) opacity(${opacityInput.value}) contrast(${contrastInput.value}%) blur(${blurInput.value}px) grayscale(${grayscaleInput.value}%) sepia(${sepiaInput.value}%) hue(${hueInput.value}deg) saturation(${saturationInput.value}deg) invert(${invertInput.value})`
-// }
+const filters = () => {
+    $(".meme-image").style.filter = `brightness(${$("#brightness-slider").value}) opacity(${$("#opacity-slider").value}) contrast(${$("#contrast-slider").value}%) blur(${$("#blur-slider").value}px) grayscale(${$("#grayscale-slider").value}%) sepia(${$("#sepia-slider").value}%) hue(${$("#hue-slider").value}deg) saturation(${$("#saturate-slider").value}%) invert(${$("#invert-slider").value})`
+}
+
+$("#brightness-slider").addEventListener("input", filters)
+$("#opacity-slider").addEventListener("input", filters)
+$("#contrast-slider").addEventListener("input", filters)
+$("#blur-slider").addEventListener("input", filters)
+$("#grayscale-slider").addEventListener("input", filters)
+$("#sepia-slider").addEventListener("input", filters)
+$("#hue-slider").addEventListener("input", filters)
+$("#saturate-slider").addEventListener("input", filters)
+$("#invert-slider").addEventListener("input", filters)
+
 
 // brightInput.addEventListener('input', ()=>filters());
 // contrastInput.addEventListener('input', ()=>filters());
@@ -80,15 +102,17 @@ $("#mode-button").addEventListener("click", () => {
 // hueInput.addEventListener('input', ()=>filters());
 // invertInput.addEventListener('input', ()=>filters());
 
-// const colorPicker = document.getElementById("pick-background-color");
-// const colorName = document.getElementById("color-name");
-
-// const cambiarFondoMeme = () => {
-   
-//     let colorElegido = colorPicker.value
-//     colorName.innerHTML = `${colorElegido}`;
-// }
-
-// colorPicker.addEventListener("input", () => cambiarFondoMeme())
+$("#button-default").addEventListener("click", () => {
+    $("#brightness-slider").value = "1"
+    $("#opacity-slider").value = "1"
+    $("#contrast-slider").value = "0"
+    $("#blur-slider").value = "0"
+    $("#grayscale-slider").value = "0"
+    $("#sepia-slider").value = "0"
+    $("#hue-slider").value = "0"
+    $("#saturate-slider").value = "0"
+    $("#invert-slider").value = "0"
+    $(".meme-image").style.filter = "none"
+})
 
 
