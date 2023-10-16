@@ -1,59 +1,57 @@
-// VARIABLES
+// VARIABLES //
 
-// FUNCIONES
+// FUNCIONES //
 const $ = (selector) => document.querySelector(selector)
 
-// const downloadMeme = () => {
-//     domtoimage.toBlob($(".download-meme")).then((blob) => {
-//         saveAs(blob, "my-meme.png")
-//     })
-// }
+const downloadMeme = () => {
+    domtoimage.toBlob($(".download-meme")).then((blob) => {
+        saveAs(blob, "my-meme.png")
+    })
+}
+const hideElement = (selector) => $(selector).classList.add("visibility--hidden")
+const showElement = (selector) => $(selector).classList.remove("visibility--hidden")
 
-// const imageButton = document.getElementById ('img-button');
-// const textButton = document.getElementById ('text-button');
-// const modeButton = document.getElementById ('mode-button');
-// const meme = document.getElementById ('image-meme');
+// EVENTOS //
 
-// const textAside = document.getElementById('aside-text');
-// const imageAside = document.getElementById('aside-img');
-// const bothAsides = document.getElementsByClassName('side-bar');
+// TEXT-IMAGE SWITCH BUTTONS
 
-// textButton.addEventListener('click' , ()=> hideTextAside());
-// imageButton.addEventListener('click' , ()=> hideImageAside());
+$("#text-button").addEventListener ('click' , () => {
+    $("#aside-text").classList.remove("hidden")
+    $("#aside-img").classList.add("hidden")
+})
 
- 
-// const hideTextAside = () => {
-//     imageAside.classList.add ('hidden');
-//     textAside.classList.remove ('hidden');
+$("#img-button").addEventListener ('click' , () => {
+    $("#aside-img").classList.remove("hidden")
+    $("#aside-text").classList.add("hidden")
+})
 
-// }
+// MEME IMAGE UPLOAD
 
-// const hideImageAside = () => {
-//     imageAside.classList.remove ('hidden');
-//     textAside.classList.add ('hidden');
+const urlInput = document.getElementById('insert-img-url');
+const memeImg = document.getElementById('meme-img');
 
-// }
+urlInput.addEventListener('input', ()=> backgroundChange())
 
-// const changeMode = () => {
-//     bothAsides[0].classList.add ('dark-aside');
-//     bothAsides[1].classList.add ('dark-aside');
-// }
+const backgroundChange = () => {
+    memeImg.style.backgroundImage = `url('${urlInput.value}')`
 
 
-// // MEME IMAGE 
+}
 
-// const urlInput = document.getElementById('insert-img-url');
-// const memeImg = document.getElementById('meme-img');
+// DARK MODE-LIGHT MODE SWITCH BUTTON
 
-// urlInput.addEventListener('input', ()=> backgroundChange())
+$("#mode-button").addEventListener("click", () => {
+    const currentTheme = $("body").getAttribute("data-theme")
+        if(currentTheme) {
+            $("body").removeAttribute("data-theme", "light-theme")
+            
+        } else {
+            $("body").setAttribute("data-theme", "light-theme")
 
-// const backgroundChange = () => {
-//     memeImg.style.backgroundImage = `url('${urlInput.value}')`
-
-
-// }
-
-
+        }
+      
+    })
+    
 // // FILTERS
 
 // const brightInput = document.getElementById("brightness-slider");
@@ -93,12 +91,4 @@ const $ = (selector) => document.querySelector(selector)
 
 // colorPicker.addEventListener("input", () => cambiarFondoMeme())
 
-$("#mode-button").addEventListener("click", () => {
-const currentTheme = $("body").getAttribute("data-theme")
-    if(currentTheme) {
-        $("body").removeAttribute("data-theme", "light-theme")
-    } else {
-        $("body").setAttribute("data-theme", "light-theme")
-    }
 
-})
