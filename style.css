@@ -1,17 +1,39 @@
 
+:root {
+    --background-primary: rgb(0, 54, 64);
+    --background-secondary: rgb(0, 24, 28);
+    --background-tertiary: rgb(1,30,35);
+    --background-quaternary: rgb(205, 234, 239);
+    --font-color-primary: #e7e7e7;
+    --font-color-secondary: #000000;
+    --button-color-primary: greenyellow;
+    --button-color-hover: #4f038a;
+}
+
+[data-theme="light-theme"] {
+    --background-primary: rgb(184, 212, 218);
+    --background-secondary: rgb(103, 151, 160);
+    --background-tertiary: rgb(205, 229, 233);
+    --background-quaternary: rgb(103, 151, 160);
+    --font-color-primary: #181818;
+    --font-color-secondary: #ffffff;
+    --button-color-primary: rgb(26, 161, 94);
+    --button-color-hover: #8e34d2;   
+}
+
 body {
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-color: rgb(0, 54, 64);
+    background-color: var(--background-primary);
 
 }
 
 header {
     width: 100%;
-    background-color: rgb(0, 24, 28);
+    background-color: var(--background-secondary);
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     display: flex;
@@ -22,7 +44,7 @@ header {
 }
 
 .app-title {
-    color: white;
+    color: var(--font-color-primary);
     font-weight: 600;
     font-size: 40px;
    
@@ -43,11 +65,11 @@ header {
     background-color: transparent;
     border: none;
     font-size: 15px;
-    color: white;
+    color: var(--font-color-primary);
 }
 
 .button-dark-mode {
-    color: white;
+    color: var(--font-color-primary);
 }
 
 .meme-container {
@@ -95,8 +117,8 @@ header {
     padding: 10px;
     font-size: 20px;
     font-weight: 600;
-    color: rgb(0, 0, 0);
-    background-color: greenyellow;
+    color: var(--font-color-secondary);
+    background-color: var(--button-color-primary);
     border: none;
     border-radius: 5px;
 
@@ -107,7 +129,7 @@ header {
     flex-direction: column;
     justify-content: flex-start;
     padding: 30px 15px;
-    background-color: rgb(1,30,35);
+    background-color:var(--background-tertiary);
     margin-left: auto;
     width: 230px;
     position: fixed;
@@ -120,7 +142,7 @@ header {
 section {
     display: block;
     font-family: 'Open Sans', sans-serif;
-    color: white;
+    color: var(--font-color-primary);
     overflow:auto;
     padding-bottom: 50px;
     position: fixed;
@@ -205,7 +227,15 @@ input, select, button, textarea {
 
  .effect-slider {
     cursor: pointer;
-    
+    background-color: var(--background-quaternary);
+    outline: none; 
+    appearance: none;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 3px;
+    margin-top: 10px;
+
  }
 
 .button-default {
