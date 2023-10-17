@@ -93,6 +93,10 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-color: #000000;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .meme-text {
@@ -103,19 +107,16 @@ header {
     color: black;
     text-align: center;
     margin: 0;
-    
-    
 
 }
 
-.meme-image {
-    background-color: black;
+/* .meme-image {
     height: 100%;
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-}
+} */
 
 .download {
     margin: 30px;
@@ -271,13 +272,20 @@ input, select, button, textarea {
     display: none;
 }
 
+.transparent {
+    background-color: transparent;
+}
+
 /* <!-- TOP TEXT --> */ /* <!-- BOTTOM TEXT --> */
 
 
 .top-text-container {
     display: flex;
     flex-direction: column;
+   
 }
+
+
 
 .checkbox {
     margin-top: 15px;
@@ -338,6 +346,9 @@ textarea {
 
 .spacing {
     width: 100%;
+    
    
 }
+
+
 
