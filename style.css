@@ -2,7 +2,7 @@
 :root {
     --background-primary: rgb(0, 54, 64);
     --background-secondary: rgb(0, 24, 28);
-    --background-tertiary: rgb(1,30,35);
+    --background-tertiary: rgb(0, 40, 47);
     --background-quaternary: rgb(205, 234, 239);
     --font-color-primary: #e7e7e7;
     --font-color-secondary: #000000;
@@ -141,6 +141,20 @@ header {
     height: 100%;
     z-index: 10;
 }
+
+.x-button { 
+    color: var(--font-color-primary);
+    cursor: pointer;
+    padding: 1px 5px;
+}
+
+.x-button:hover {
+    background-color: var(--background-secondary);
+    border-radius: 5px;
+}
+
+
+
 /* PANELS */
 
 

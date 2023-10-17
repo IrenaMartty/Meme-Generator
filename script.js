@@ -4,7 +4,7 @@
 const $ = (selector) => document.querySelector(selector)
 
 const downloadMeme = () => {
-    domtoimage.toBlob($(".download-meme")).then((blob) => {
+    domtoimage.toBlob($("#download-meme")).then((blob) => {
         saveAs(blob, "my-meme.png")
     })
 }
@@ -14,7 +14,9 @@ const addColor = (selector, color) => $(selector).style.color = color
 const hideElement = (selector) => $(selector).classList.add("visibility--hidden")
 const showElement = (selector) => $(selector).classList.remove("visibility--hidden")
 
+
 // EVENTOS //
+
 
 // <!-- TEXT-IMAGE SWITCH BUTTONS -->
 $("#text-button").addEventListener ('click' , () => {
@@ -25,6 +27,24 @@ $("#text-button").addEventListener ('click' , () => {
 $("#img-button").addEventListener ('click' , () => {
     $("#aside-img").classList.remove("hidden")
     $("#aside-text").classList.add("hidden")
+})
+
+// <!-- SIDE BAR -->
+$(".x-button-text").addEventListener("click", () => {
+    $("aside").style.display = "none"
+})
+
+$(".x-button-img").addEventListener("click", () => {
+    $("aside").style.display = "none"
+    
+}) 
+$("#text-button").addEventListener("click", () => {
+    $("aside").style.display = "block"
+})
+
+
+$("#img-button").addEventListener("click", () => {
+    $("aside").style.display = "block"
 })
 
 // <!-- DARK MODE-LIGHT MODE SWITCH BUTTON -->
@@ -39,7 +59,47 @@ $("#mode-button").addEventListener("click", () => {
         }
       
     })
+// <!-- TEXT PANEL -->
+// <!-- TOP TEXT --> <!-- BOTTOM TEXT -->
+
+$("#insert-top-text").addEventListener("input", (e) => {
+    $("#top-text").textContent = e.target.value
+})
+
+$("#insert-bottom-text").addEventListener("input", (e) => {
+    $("#bottom-text").textContent = e.target.value
+})
+
+// <!-- FONT -->
+// <!-- FONT FAMILY -->
+$("#select-font").addEventListener("input", (e) => {
+    $("#top-text").style.fontFamily = e.target.value
+    $("#bottom-text").style.fontFamily = e.target.value
+})
     
+// <!-- FONT SIZE -->
+
+$("#font-size").addEventListener("input", (e) => {
+    $("#top-text").style.fontSize = `${e.target.value}px`
+    $("#bottom-text").style.fontSize = `${e.target.value}px`
+})
+
+$("#button-align-left").addEventListener("input", (e) => {
+    $("#top-text").style.textAlign = ("left")
+    $("#bottom-text").style.textAlign = ("left")
+})
+
+$("#button-align-center").addEventListener("input", (e) => {
+    $("#top-text").style.textAlign = "center"
+    $("#bottom-text").style.textAlign = "center"
+})
+
+$("#button-align-right").addEventListener("input", (e) => {
+    $("#top-text").style.textAlign = 'right'
+    $("#bottom-text").style.textAlign = 'right'
+})
+
+
 // <!-- IMAGE PANEL -->
 
 // <!-- INSERT URL -->
@@ -50,7 +110,6 @@ urlInput.addEventListener('input', ()=> backgroundChange())
 
 const backgroundChange = () => {
     memeImg.style.backgroundImage = `url('${urlInput.value}')`
-
 
 }
 
@@ -64,19 +123,6 @@ $("#select-blend-mode").addEventListener("input", (e)=> {
 })
 
 // <!-- FILTERS -->
-
-// const brightInput = document.getElementById("brightness-slider");
-// const contrastInput = document.getElementById('contrast-slider');
-// const opacityInput = document.getElementById('opacity-slider');
-// const blurInput = document.getElementById('blur-slider');
-// const grayscaleInput = document.getElementById('grayscale-slider');
-// const sepiaInput = document.getElementById('sepia-slider');
-// const hueInput = document.getElementById('hue-slider');
-// const saturationInput = document.getElementById('saturate-slider');
-// const invertInput = document.getElementById('invert-slider');
-
-// console.log(brightInput.value);
-// console.log(contrastInput.value);
 
 const filters = () => {
     $(".meme-image").style.filter = `brightness(${$("#brightness-slider").value}) opacity(${$("#opacity-slider").value}) contrast(${$("#contrast-slider").value}%) blur(${$("#blur-slider").value}px) grayscale(${$("#grayscale-slider").value}%) sepia(${$("#sepia-slider").value}%) hue(${$("#hue-slider").value}deg) saturation(${$("#saturate-slider").value}%) invert(${$("#invert-slider").value})`
@@ -92,15 +138,7 @@ $("#hue-slider").addEventListener("input", filters)
 $("#saturate-slider").addEventListener("input", filters)
 $("#invert-slider").addEventListener("input", filters)
 
-
-// brightInput.addEventListener('input', ()=>filters());
-// contrastInput.addEventListener('input', ()=>filters());
-// opacityInput.addEventListener('input', ()=>filters());
-// blurInput.addEventListener('input', ()=>filters());
-// grayscaleInput.addEventListener('input', ()=>filters());
-// sepiaInput.addEventListener('input', ()=>filters());
-// hueInput.addEventListener('input', ()=>filters());
-// invertInput.addEventListener('input', ()=>filters());
+console.log(filters)
 
 $("#button-default").addEventListener("click", () => {
     $("#brightness-slider").value = "1"
@@ -114,5 +152,7 @@ $("#button-default").addEventListener("click", () => {
     $("#invert-slider").value = "0"
     $(".meme-image").style.filter = "none"
 })
+
+
 
 
