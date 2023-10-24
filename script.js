@@ -125,24 +125,28 @@ $("#pick-text-background-color").addEventListener("input", (e)=> {
 $("#checkbox").addEventListener("input", () => {
     $("#top-text").classList.toggle("transparent")
     $("#bottom-text").classList.toggle("transparent")
-   
 } ) 
 
 // <!-- CONTOUR -->
-// $("#button-contour-none").addEventListener("click", (e) => {
-//     $("#top-text").style.addtextShadow = "none"
-//     $("#bottom-text").style.textShadow = "none"
-// })
 
-// $("#button-contour-light").addEventListener("click", (e) => {
-//     $("#top-text").style.textShadow = "white"
-//     $("#bottom-text").style.textShadow = "white"
-// })
+$("#button-contour-light").addEventListener ('click' , () => {
+    $(".top-text").classList.add("text-contour-light")
+    $(".bottom-text").classList.add("text-contour-light")
+    $(".top-text").classList.remove("text-contour-dark")
+    $(".bottom-text").classList.remove("text-contour-dark")
+})
 
-// $("#button-contour-dark").addEventListener("click", (e) => {
-//     $("#top-text").style.textShadow = "black"
-//     $("#bottom-text").style.textShadow = "black"
-// })
+$("#button-contour-dark").addEventListener ('click' , () => {
+    $(".top-text").classList.add("text-contour-dark")
+    $(".bottom-text").classList.add("text-contour-dark")
+    $(".top-text").classList.remove("text-contour-light")
+    $(".bottom-text").classList.remove("text-contour-light")
+})
+
+$("#button-contour-none").addEventListener ('click' , () => {
+    $(".top-text").classList.remove("text-contour-dark", "text-contour-light")
+    $(".bottom-text").classList.remove("text-contour-dark", "text-contour-light")
+})
 
 // <!-- SPACING -->
 $("#spacing").addEventListener("input", (e) => {
