@@ -28,7 +28,6 @@ body {
     padding: 0;
     height: 100vh;
     background-color: var(--background-primary);
-
 }
 
 header {
@@ -46,17 +45,10 @@ header {
 .app-title {
     color: var(--font-color-primary);
     font-weight: 600;
-    font-size: 40px;
-   
+    font-size: 40px;  
 }
 
-/* .main-div {
-    display: block; */
-
-
-
 /* Navigation buttons */
-
 .nav {
     padding-bottom: 30px;
 }
@@ -76,15 +68,18 @@ header {
     display: none;
 }
 
+.fa-lightbulb-solid {
+    display: none;
+}
+
 .meme-container {
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    
-    
+    padding: 20px;   
 }
+
 .meme-template {
     width: 100%;
     height: 610px;
@@ -106,17 +101,10 @@ header {
     background: white;
     color: black;
     text-align: center;
-    margin: 0;
-
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-
-/* .meme-image {
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-} */
 
 .download {
     margin: 30px;
@@ -127,7 +115,6 @@ header {
     background-color: var(--button-color-primary);
     border: none;
     border-radius: 5px;
-
 }
 
 .side-bar {
@@ -154,10 +141,7 @@ header {
     border-radius: 5px;
 }
 
-
-
 /* PANELS */
-
 
 section {
     display: block;
@@ -179,8 +163,6 @@ input, select, button, textarea {
 .panel-control {
     padding-top: 10px;
 }
-
-
 
 /* <!-- IMAGE PANEL --> */
 
@@ -231,8 +213,6 @@ input, select, button, textarea {
     border: none;
     padding: 0;
  }
-
- 
    
   /* <!-- FILTERS --> */
 
@@ -281,11 +261,8 @@ input, select, button, textarea {
 
 .top-text-container {
     display: flex;
-    flex-direction: column;
-   
+    flex-direction: column;  
 }
-
-
 
 .checkbox {
     margin-top: 15px;
@@ -323,7 +300,6 @@ textarea {
 .panel-control-columns {
     display: flex;
     flex-direction: row;
-    
 }
 
 .panel-control-color {
@@ -334,20 +310,16 @@ textarea {
 
 .contour-buttons {
     width: 100%;
-
 }
 
 .button-contour {
     width: 32%;
-    /* padding: 5px; */
 }
 
 /* <!-- SPACING --> */
 
 .spacing {
     width: 100%;
-    
-   
 }
 
 
