@@ -1,4 +1,4 @@
-// VARIABLES //
+
 
 // FUNCIONES //
 const $ = (selector) => document.querySelector(selector)
@@ -11,14 +11,11 @@ const downloadMeme = () => {
 const initializeProject = () => {
 $("#download").addEventListener("click", downloadMeme)}
 
-const addColor = (selector, color) => $(selector).style.color = color
-
 const hideElement = (selector) => $(selector).classList.add("visibility--hidden")
 const showElement = (selector) => $(selector).classList.remove("visibility--hidden")
 
 
 // EVENTOS //
-
 
 // <!-- TEXT-IMAGE SWITCH BUTTONS -->
 $("#text-button").addEventListener ('click' , () => {
