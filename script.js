@@ -1,21 +1,20 @@
-
-
-// FUNCIONES //
+// FUNCIONES
 const $ = (selector) => document.querySelector(selector)
 
 const downloadMeme = () => {
     domtoimage.toBlob($(".meme-template")).then((blob) => {
         saveAs(blob, "my-meme.png")
+        alert("Meme downloaded!")
     })
 }
-const initializeProject = () => {
-$("#download").addEventListener("click", downloadMeme)}
 
 const hideElement = (selector) => $(selector).classList.add("visibility--hidden")
 const showElement = (selector) => $(selector).classList.remove("visibility--hidden")
 
-
 // EVENTOS //
+const initializeProject = () => {
+    $("#download").addEventListener("click", downloadMeme)
+}
 
 // <!-- TEXT-IMAGE SWITCH BUTTONS -->
 $("#text-button").addEventListener ('click' , () => {
@@ -191,8 +190,8 @@ $("#select-spacing").addEventListener("input", (e) => {
 // <!-- IMAGE PANEL -->
 
 // <!-- INSERT URL -->
-const urlInput = document.getElementById('insert-img-url');
-const memeImg = document.getElementById('meme-image');
+const urlInput = document.getElementById("insert-img-url")
+const memeImg = document.getElementById("meme-image")
 
 urlInput.addEventListener('input', ()=> backgroundChange())
 
