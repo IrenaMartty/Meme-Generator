@@ -77,7 +77,9 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;   
+    margin: 20px; 
+    flex-grow: 1;
+      
 }
 
 .meme-template {
@@ -86,12 +88,19 @@ header {
     width: 610px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+    position: relative;
+    
+}
+
+.meme-image{
+    height: 610px;
+    width: 610px;
     background-color: #000000;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    box-sizing: border-box;
+    flex-grow: 1;
+
 }
 
 .meme-text {
@@ -104,6 +113,9 @@ header {
     box-sizing: border-box;
     padding-left: 20px;
     padding-right: 20px;
+    position: static;
+    overflow-inline: ;
+
 }
 
 .text-contour-dark {
@@ -126,9 +138,6 @@ header {
 }
 
 .side-bar {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     padding: 30px 15px;
     background-color:var(--background-tertiary);
     margin-left: auto;
@@ -136,17 +145,34 @@ header {
     position: fixed;
     height: 100%;
     z-index: 10;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: auto;
+    top: 0;
+    right: 0;
+
+
+
 }
 
 .x-button { 
-    color: var(--font-color-primary);
-    cursor: pointer;
-    padding: 1px 5px;
+    visibility: hidden;
 }
 
-.x-button:hover {
-    background-color: var(--background-secondary);
-    border-radius: 5px;
+
+
+@media (max-width: 1300px) {
+    .x-button {
+        visibility: visible;
+        padding: 1px 5px;
+        color: transparent;
+        color: var(--font-color-primary);
+        cursor: pointer;
+    }
+    .x-button:hover {
+        background-color: var(--background-secondary);
+        border-radius: 5px;
+    }
 }
 
 /* PANELS */
@@ -157,7 +183,7 @@ section {
     color: var(--font-color-primary);
     overflow:auto;
     padding-bottom: 50px;
-    position: fixed;
+    
 }
 
 button {
@@ -214,6 +240,7 @@ input, select, button, textarea {
     background-color: transparent;
     border: none;
  }
+   
 
  .background-color::-webkit-color-swatch
  ,.background-color::-webkit-color-swatch-wrapper {
@@ -258,16 +285,28 @@ input, select, button, textarea {
     display: none;
 }
 
-.transparent {
-    background-color: transparent;
-}
-
 /* <!-- TOP TEXT --> */ /* <!-- BOTTOM TEXT --> */
 
 
 .top-text-container {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;    
+}
+
+.top-text {
+    margin: 0%;
+}
+
+.bottom-text {
+    margin: 0%;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
 .checkbox {
@@ -311,6 +350,7 @@ textarea {
 .panel-control-color {
     margin-right: 10px;
 }
+
 
 /* <!-- CONTOUR --> */
 

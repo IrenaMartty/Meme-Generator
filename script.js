@@ -117,16 +117,29 @@ $("#pick-font-color").addEventListener("input", (e)=> {
     $("#bottom-text").style.color = e.target.value
 })
 // <!-- TEXT BACKGROUND COLOR -->
-$("#pick-text-background-color").addEventListener("input", (e)=> {
-    $("#top-text").style.backgroundColor = e.target.value
-    $("#bottom-text").style.backgroundColor = e.target.value
+
+const textBackgroundColor = document.getElementById("pick-text-background-color")
+textBackgroundColor.addEventListener("input", (e)=> {
+    const topText = document.getElementById("top-text")
+    const bottomText = document.getElementById("bottom-text")
+    topText.style.backgroundColor = e.target.value
+    bottomText.style.backgroundColor = e.target.value
 })
+ 
+document.getElementById("checkbox").addEventListener("click", () => {
+    const topText = document.getElementById("top-text")
+    const bottomText = document.getElementById("bottom-text")
+    
+    if (topText.style.backgroundColor === "transparent") {
 
-$("#checkbox").addEventListener("input", () => {
-    $("#top-text").classList.toggle("transparent")
-    $("#bottom-text").classList.toggle("transparent")
-} ) 
-
+      topText.style.backgroundColor = "white"
+      bottomText.style.backgroundColor = "white"
+    } else {
+      
+      topText.style.backgroundColor = "transparent"
+      bottomText.style.backgroundColor = "transparent"
+    }
+  });
 // <!-- CONTOUR -->
 
 $("#button-contour-light").addEventListener ('click' , () => {
@@ -166,7 +179,7 @@ $("#select-spacing").addEventListener("input", (e) => {
 
 // <!-- INSERT URL -->
 const urlInput = document.getElementById('insert-img-url');
-const memeImg = document.getElementById('meme-template');
+const memeImg = document.getElementById('meme-image');
 
 urlInput.addEventListener('input', ()=> backgroundChange())
 
@@ -177,28 +190,40 @@ const backgroundChange = () => {
 
 // <!-- BACKGROUND -->
 $("#pick-background-color").addEventListener("input", (e)=> {
-    $(".meme-template").style.backgroundColor = e.target.value
+    $(".meme-image").style.backgroundColor = e.target.value
 })
 
 $("#select-blend-mode").addEventListener("input", (e)=> {
-    $(".meme-template").style.backgroundBlendMode = e.target.value
+    $(".meme-image").style.backgroundBlendMode = e.target.value
 })
 
 // <!-- FILTERS -->
 
-const filters = () => {
-    $(".meme-template").style.filter = `brightness(${$("#brightness-slider").value}) opacity(${$("#opacity-slider").value}) contrast(${$("#contrast-slider").value}%) blur(${$("#blur-slider").value}px) grayscale(${$("#grayscale-slider").value}%) sepia(${$("#sepia-slider").value}%) hue(${$("#hue-slider").value}deg) saturation(${$("#saturate-slider").value}%) invert(${$("#invert-slider").value})`
-}
+// const filters = () => {
+//     $(".meme-template").style.filter = `brightness(${$("#brightness-slider").value}) opacity(${$("#opacity-slider").value}) contrast(${$("#contrast-slider").value}%) blur(${$("#blur-slider").value}px) grayscale(${$("#grayscale-slider").value}%) sepia(${$("#sepia-slider").value}%) hue(${$("#hue-slider").value}deg) saturation(${$("#saturate-slider").value}%) invert(${$("#invert-slider").value})`
+// }
 
-$("#brightness-slider").addEventListener("input", filters)
-$("#opacity-slider").addEventListener("input", filters)
-$("#contrast-slider").addEventListener("input", filters)
+// $("#brightness-slider").addEventListener("input", filters)
+// $("#opacity-slider").addEventListener("input", filters)
+// $("#contrast-slider").addEventListener("input", filters)
+// $("#blur-slider").addEventListener("input", filters)
+// $("#grayscale-slider").addEventListener("input", filters)
+// $("#sepia-slider").addEventListener("input", filters)
+// $("#hue-slider").addEventListener("input", filters)
+// $("#saturate-slider").addEventListener("input", filters)
+// $("#invert-slider").addEventListener("input", filters)
+
+
+
+
+// <!-- FILTERS -->
+
+
+const filters = () => {
+    $(".meme-img").style.filter = `blur(${$("#blur-slider").value}px) grayscale(${$("#grayscale-slider").value}%)` 
+}
 $("#blur-slider").addEventListener("input", filters)
 $("#grayscale-slider").addEventListener("input", filters)
-$("#sepia-slider").addEventListener("input", filters)
-$("#hue-slider").addEventListener("input", filters)
-$("#saturate-slider").addEventListener("input", filters)
-$("#invert-slider").addEventListener("input", filters)
 
 
 $("#button-default").addEventListener("click", () => {
