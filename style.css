@@ -1,13 +1,12 @@
-
+/* DARK MODE - LIGHT MODE COLORS */
 :root {
-    --background-primary: rgb(0, 54, 64);
+    --background-primary: rgb(1, 70, 82);
     --background-secondary: rgb(0, 24, 28);
     --background-tertiary: rgb(0, 40, 47);
     --background-quaternary: rgb(205, 234, 239);
     --font-color-primary: #e7e7e7;
     --font-color-secondary: #000000;
     --button-color-primary: greenyellow;
-    --button-color-hover: #4f038a;
 }
 
 [data-theme="light-theme"] {
@@ -17,8 +16,11 @@
     --background-quaternary: rgb(103, 151, 160);
     --font-color-primary: #181818;
     --font-color-secondary: #ffffff;
-    --button-color-primary: rgb(26, 161, 94);
-    --button-color-hover: #8e34d2;   
+    --button-color-primary: rgb(26, 161, 94);    
+}
+
+.visibility--hidden {
+    display: none;
 }
 
 body {
@@ -46,11 +48,13 @@ header {
     color: var(--font-color-primary);
     font-weight: 600;
     font-size: 40px;  
+    text-align: center;
 }
 
 /* Navigation buttons */
 .nav {
     padding-bottom: 30px;
+    display: flex;
 }
 
 .nav-button {
@@ -60,15 +64,16 @@ header {
     color: var(--font-color-primary);
 }
 
+.nav-button:hover {
+    background-color: var(--background-primary);
+    border-radius: 5px;;
+}
+
 .button-dark-mode {
     color: var(--font-color-primary);
 }
 
-.visibility--hidden {
-    display: none;
-}
-
-.fa-lightbulb-solid {
+.button-light-mode {
     display: none;
 }
 
@@ -78,24 +83,21 @@ header {
     justify-content: center;
     align-items: center;
     margin: 20px; 
-    flex-grow: 1;
-      
 }
 
 .meme-template {
     width: 100%;
     height: 610px;
-    width: 610px;
+    max-width: 610px;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    
 }
 
 .meme-image{
-    height: 610px;
-    width: 610px;
+    height: 100%;
+    width: 100%;
     background-color: #000000;
     background-size: cover;
     box-sizing: border-box;
@@ -150,16 +152,27 @@ header {
     overflow: auto;
     top: 0;
     right: 0;
+}
 
 
+@media (max-width: 1150px) {
+    aside{
+        display: none;
+    }
+}
 
+@media (max-width: 1150px) {
+    .side-bar{
+        width:100%;
+    }
+    .aside {
+        padding: 30px;
+    }
 }
 
 .x-button { 
     visibility: hidden;
 }
-
-
 
 @media (max-width: 1300px) {
     .x-button {
@@ -367,6 +380,7 @@ textarea {
 .spacing {
     width: 100%;
 }
+
 
 
 

@@ -50,18 +50,34 @@ $("#img-button").addEventListener("click", () => {
 })
 
 // <!-- DARK MODE-LIGHT MODE SWITCH BUTTON -->
-$("#mode-button").addEventListener("click", () => {
+$("#mode-button-1").addEventListener("click", () => {
     const currentTheme = $("body").getAttribute("data-theme")
         if(currentTheme) {
             $("body").removeAttribute("data-theme", "light-theme")
+            $(".button-light-mode").style.display = "none"
+            $(".button-dark-mode").style.display = "block"
         
         } else {
             $("body").setAttribute("data-theme", "light-theme")
-           
-
+            $(".button-light-mode").style.display = "block"
+            $(".button-dark-mode").style.display = "none"
         }
-      
     })
+
+$("#mode-button-2").addEventListener("click", () => {
+        const currentTheme = $("body").getAttribute("data-theme")
+            if(currentTheme) {
+                $("body").removeAttribute("data-theme", "light-theme")
+                $(".button-light-mode").style.display = "none"
+                $(".button-dark-mode").style.display = "block"
+            
+            } else {
+                $("body").setAttribute("data-theme", "light-theme")
+                $(".button-light-mode").style.display = "block"
+                $(".button-dark-mode").style.display = "none"
+            }
+        })
+
 // <!-- TEXT PANEL -->
 // <!-- TOP TEXT --> <!-- BOTTOM TEXT -->
 
