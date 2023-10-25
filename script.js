@@ -215,32 +215,19 @@ $("#select-blend-mode").addEventListener("input", (e)=> {
 
 // <!-- FILTERS -->
 
-// const filters = () => {
-//     $(".meme-template").style.filter = `brightness(${$("#brightness-slider").value}) opacity(${$("#opacity-slider").value}) contrast(${$("#contrast-slider").value}%) blur(${$("#blur-slider").value}px) grayscale(${$("#grayscale-slider").value}%) sepia(${$("#sepia-slider").value}%) hue(${$("#hue-slider").value}deg) saturation(${$("#saturate-slider").value}%) invert(${$("#invert-slider").value})`
-// }
-
-// $("#brightness-slider").addEventListener("input", filters)
-// $("#opacity-slider").addEventListener("input", filters)
-// $("#contrast-slider").addEventListener("input", filters)
-// $("#blur-slider").addEventListener("input", filters)
-// $("#grayscale-slider").addEventListener("input", filters)
-// $("#sepia-slider").addEventListener("input", filters)
-// $("#hue-slider").addEventListener("input", filters)
-// $("#saturate-slider").addEventListener("input", filters)
-// $("#invert-slider").addEventListener("input", filters)
-
-
-
-
-// <!-- FILTERS -->
-
-
 const filters = () => {
-    $(".meme-img").style.filter = `blur(${$("#blur-slider").value}px) grayscale(${$("#grayscale-slider").value}%)` 
+    $(".meme-image").style.filter = `brightness(${$("#brightness-slider").value}) opacity(${$("#opacity-slider").value}) contrast(${$("#contrast-slider").value}%) blur(${$("#blur-slider").value}px) grayscale(${$("#grayscale-slider").value}%) sepia(${$("#sepia-slider").value}%) invert(${$("#invert-slider").value}) saturate(${$("#saturate-slider").value}%)` 
 }
+
+$("#brightness-slider").addEventListener("input", filters)
+$("#opacity-slider").addEventListener("input", filters)
+$("#contrast-slider").addEventListener("input", filters)
 $("#blur-slider").addEventListener("input", filters)
 $("#grayscale-slider").addEventListener("input", filters)
-
+$("#sepia-slider").addEventListener("input", filters)
+$("#hue-rotation-slider").addEventListener("input", filters)
+$("#saturate-slider").addEventListener("input", filters)
+$("#invert-slider").addEventListener("input", filters)
 
 $("#button-default").addEventListener("click", () => {
     $("#brightness-slider").value = "1"
@@ -249,7 +236,7 @@ $("#button-default").addEventListener("click", () => {
     $("#blur-slider").value = "0"
     $("#grayscale-slider").value = "0"
     $("#sepia-slider").value = "0"
-    $("#hue-slider").value = "0"
+    $("#hue-rotation-slider").value = "0"
     $("#saturate-slider").value = "0"
     $("#invert-slider").value = "0"
     $(".meme-image").style.filter = "none"
