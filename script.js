@@ -15,6 +15,7 @@ const showElement = (selector) => $(selector).classList.remove("visibility--hidd
 const initializeProject = () => {
     $("#download").addEventListener("click", downloadMeme)
 }
+window.addEventListener("load", initializeProject)
 
 // <!-- TEXT-IMAGE SWITCH BUTTONS -->
 $("#text-button").addEventListener ('click' , () => {
@@ -141,13 +142,10 @@ textBackgroundColor.addEventListener("input", (e)=> {
 document.getElementById("checkbox").addEventListener("click", () => {
     const topText = document.getElementById("top-text")
     const bottomText = document.getElementById("bottom-text")
-    
     if (topText.style.backgroundColor === "transparent") {
-
       topText.style.backgroundColor = "white"
       bottomText.style.backgroundColor = "white"
     } else {
-      
       topText.style.backgroundColor = "transparent"
       bottomText.style.backgroundColor = "transparent"
     }
@@ -212,7 +210,7 @@ $("#select-blend-mode").addEventListener("input", (e)=> {
 // <!-- FILTERS -->
 
 const filters = () => {
-    $(".meme-image").style.filter = `brightness(${$("#brightness-slider").value}) opacity(${$("#opacity-slider").value}) contrast(${$("#contrast-slider").value}%) blur(${$("#blur-slider").value}px) grayscale(${$("#grayscale-slider").value}%) sepia(${$("#sepia-slider").value}%) invert(${$("#invert-slider").value}) saturate(${$("#saturate-slider").value}%)` 
+    $(".meme-image").style.filter = `brightness(${$("#brightness-slider").value}) opacity(${$("#opacity-slider").value}) contrast(${$("#contrast-slider").value}%) blur(${$("#blur-slider").value}px) grayscale(${$("#grayscale-slider").value}%) sepia(${$("#sepia-slider").value}%) invert(${$("#invert-slider").value}) hue-rotate(${$("#hue-rotation-slider").value}deg) saturate(${$("#saturate-slider").value}%)` 
 }
 
 $("#brightness-slider").addEventListener("input", filters)

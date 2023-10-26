@@ -101,6 +101,8 @@ header {
     background-color: #000000;
     background-size: cover;
     box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center;
     flex-grow: 1;
 
 }
